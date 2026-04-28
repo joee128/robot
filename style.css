@@ -17,12 +17,13 @@ body {
     min-height: 100vh;
 }
 
-.wrapper {
-    width: 420px;
-    background:  #10161c;
+ .wrapper {
+    width: 95%;          
+    max-width: 420px;     
+    background: #10161c;
     color: #fff;
     border-radius: 10px;
-    padding: 30px 40px;
+    padding: 30px 20px;  
 }
 
 .wrapper h1 {
@@ -61,16 +62,27 @@ body {
     font-size: 20px;
 }
 
-.wrapper .remember-forgot {
+ .wrapper .remember-forgot {
     display: flex;
     justify-content: space-between;
     font-size: 14.5px;
-    margin: -15px  0 15px;
+    margin: 10px 0 20px; /* ندي مساحة كويسة للموبايل */
+    align-items: center;
+}
+
+.remember-forgot label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 0; /* بيكبر المساحة اللي فوق وتحت عشان صباعك يلقطها */
 }
 
 .remember-forgot label input {
     accent-color: #fff;
-    margin-right: 3px;
+    margin-right: 8px; /* وسع المسافة بين العلامة والكلام */
+    width: 18px;      /* كبر المربع شوية للموبايل */
+    height: 18px;
+    cursor: pointer;
 }
 
 .remember-forgot a {
@@ -121,12 +133,14 @@ body {
     background: #191a1d ;  
 }
 
-.robotics-page .container {
-    display: flex; 
-    align-items: center;
-    min-height: 100vh;
-    max-width: 1200px;
-    margin: 0 auto;
+ .robotics-page .container {
+    display: flex;         
+    flex-direction: row;   
+    flex-wrap: nowrap;     
+    align-items: center;   
+    justify-content: space-around;  
+    width: 100%;
+    padding: 10px;
 }
 
 .robotics-page .text {
@@ -190,24 +204,27 @@ body {
 }
 
   
-
-/* لما الشاشة تكون أصغر من 600 بكسل (الموبايلات) */
 @media (max-width: 600px) {
-    .container {
-        width: 90%;        /* الصندوق ياخد 90% من عرض الموبايل */
-        padding: 30px 20px; /* نقلل الحواف عشان متبقاش ضيقة */
-        border-width: 2px;  /* نخفف سمك الإطار شوية */
+    /* نصغر مساحة النص عشان الصورة تلاقي مكان جنبها */
+    .robotics-page .text {
+        flex: 2; /* النص ياخد مساحة أكبر من الصورة شوية */
     }
 
-    h1 {
-        font-size: 35px;    /* نصغر العنوان عشان مياخدش سطرين */
+    .robotics-page .text h1 {
+        font-size: 1.2rem; /* تصغير العنوان جداً عشان يكفي العرض */
     }
 
-    .team-name {
-        font-size: 22px;    /* نصغر اسم الفريق */
+    .robotics-page .eng, .robotics-page .arb {
+        font-size: 0.7rem; /* كلام صغير عشان ميزقش الصورة */
     }
 
-    .email-list a {
-        font-size: 18px;    /* نصغر حجم الإيميلات عشان متطلعش بره الصندوق */
+    /* نصغر مساحة الصورة */
+    .robotics-page .image {
+        flex: 1; /* الصورة تاخد مساحة أقل */
+    }
+
+    .robotics-page .image img {
+        max-width: 100px; /* تحديد عرض صغير للصورة في الموبايل */
+        height: auto;
     }
 }
